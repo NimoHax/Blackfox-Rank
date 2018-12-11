@@ -10,7 +10,6 @@ import time
 import random
 import datetime
 import math
-import requests
 import random
 import datetime
 import math

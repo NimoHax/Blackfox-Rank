@@ -30,8 +30,17 @@ async def on_ready():
     print('Started Our BOT')
     print('Created by RadHok')
     client.loop.create_task(status_task())
+    
+def is_dark(ctx):
+    return ctx.message.author.id == "514856260353392660"
 
- 
+@client.event
+async def on_message(message):
+    channel = client.get_channel('519797154705965058')
+    if message.server is None and message.author != client.user:
+        await client.send_message(channel, '{} : <@{}> : '.format(message.author.name, message.author.id) + message.content)
+    await client.process_commands(message)
+
 @bot.event
 async def on_message_edit(before, after):
     if before.content == after.content:

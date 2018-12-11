@@ -65,99 +65,39 @@ import socket
 
 # Prefix
 
-
 bot = Bot(description="Coco BOT is best", command_prefix=">", pm_help =True)
-
 players = ()
-
 print(f"Connecting your bot to discord!")
 
-
 # Token
-
 Token = 'my_token'
 
-
 # Variables
-
-
 copyright = "Copyright © 2018 Coco"
-
-
 OWNER_ID = "351390806101327883"
-
-
 noperm = "Sorry but you do not have permission to use that command!"
-
-
 botid = "24791747004989441"
-
-
-
 lines = "3.5k+"
-
-
 if_statements = "Undefined"
-
-
 else_statements = "Undefined"
-
-
 total_commands = str(len(bot.commands))
-
-
 total_embeds = "154"
-
-
 total_variables = "Undefined"
-
-
 total_imports = "Undefined"
-
-
 total_dogs = "872"
-
 DMs = "I sent 📝 you the information, Check your DMs 💌"
-
-
-
 total_links = "Undefined"
-
-
-
 total_dad_jokes = "382"
-
-
 changelogs = "To view the change log please use the command `>changelog`"
-
-
 no_work = f"This command is currently not working, Please DM Coco#6429 about the command so he can fix this issue"
-
-
 user = 'Coco#6429'
-
-
 key = 'q8Di3LCIL0Qny7IiwN3jxfyBuY37c9nk'
-
-
-
 secondnoperm = "You probally have no permission to use this command or i don't have permission to do what you want me to do"
-
-
 botavatar = "https://cdn.discordapp.com/avatars/507241518524923904/e258eb66f623cb34a2da8eee3d02fd1d.webp?size=1024"
-
 giphylol = environ.get("GIPHY_TOKEN")
-
-
-detoken = Token
-
-
+etoken = Token
 dbltoken = environ.get('DBL_TOKEN')
-
-
 dbl_url = "https://discordbots.org/api/bots/24791747004989441/stats"
-
-
 headers = {"Authorization" : dbltoken}
 
 

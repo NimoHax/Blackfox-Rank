@@ -48,7 +48,10 @@ async def level_up(users, user, channel, server):
     if lvl_start < lvl_end:
         await client.send_message(channel, f":tada: Congrats {user.name}, you levelled up to level {lvl_end}!")
         users[user.id + "-" + server.id]["level"] = lvl_end
+    else:
+        return
 
+async def level_on_up(users, user, channel,server):
     user_add_xp(message.author.id, 2)
     if message.content.lower().startswith('mv!dailyrank'):
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
@@ -62,7 +65,7 @@ async def level_up(users, user, channel, server):
         embed.add_field(name = '**__Messages__**'.format(message.author),value ='``{}`` Messages'.format(msgs),inline = False)
         embed.add_field(name='Note:',value='Our bot reset all ranks everyday so it shows only daily rank')
         await client.send_message(message.channel, embed=embed)
-     
+    
 def user_add_xp(user_id: int, xp: int):
     if os.path.isfile("users.json"):
         try:

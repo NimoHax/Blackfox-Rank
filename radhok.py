@@ -55,7 +55,7 @@ def user_add_xp(user_id: int, xp: int):
             json.dump(users, fp, sort_keys=True, indent=4)
 
 
-def get_xp(user_id: int):
+async def get_xp(user_id: int):
     if os.path.isfile('users.json'):
         with open('users.json', 'r') as fp:
             users = json.load(fp)

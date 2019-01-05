@@ -63,33 +63,5 @@ def get_xp(user_id: int):
     else:
         return 0
 
-@client.event
-async def on_reaction_add(reaction, user):
-    if reaction.emoji == "✔":
-        role = discord.utils.get(reaction.message.server.roles, name="Verified")
-        await client.add_roles(user, role)
-        await client.send_message(user, f'Added Verified role in {reaction.message.server}')
-
-@client.event
-async def on_reaction_remove(reaction, user):
-    if reaction.emoji == "✔":
-        role = discord.utils.get(user.server.roles, name="Verified")
-        await client.remove_roles(user, role)
-        await client.send_message(user, f'Removed Verified role in {reaction.message.server}')
-        
-@client.command(pass_context = True)
-@commands.has_permissions(administrator=True)
-async def setreactionverify(ctx):
-    author = ctx.message.author
-    server = ctx.message.server
-    everyone_perms = discord.PermissionOverwrite(send_messages=False,read_messages=True)
-    everyone = discord.ChannelPermissions(target=server.default_role, overwrite=everyone_perms)
-    await client.create_channel(server, '★verify-for-chatting★',everyone)
-    for channel in author.server.channels:
-        if channel.name == '★verify-for-chatting★':
-            react_message = await client.send_message(channel, 'React with ✔ to Verify | Sometimes it not works so you can also use ^verify anywhere(Where you can send messages)')
-            reaction = '✔'
-            await client.add_reaction(react_message, reaction)
-  
 
 client.run(os.getenv('Token'))

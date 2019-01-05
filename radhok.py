@@ -65,14 +65,14 @@ def get_xp(user_id: int):
 
 @client.event
 async def on_reaction_add(reaction, user):
-    if reaction.emoji == "🇻":
+    if reaction.emoji == "✔":
         role = discord.utils.get(reaction.message.server.roles, name="Verified")
         await client.add_roles(user, role)
         await client.send_message(user, f'Added Verified role in {reaction.message.server}')
 
 @client.event
 async def on_reaction_remove(reaction, user):
-    if reaction.emoji == "🇻":
+    if reaction.emoji == "✔":
         role = discord.utils.get(user.server.roles, name="Verified")
         await client.remove_roles(user, role)
         await client.send_message(user, f'Removed Verified role in {reaction.message.server}')
